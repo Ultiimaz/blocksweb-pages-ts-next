@@ -1,11 +1,6 @@
-import { useAuth } from "@blocksweb/core/api";
-
-import { useRouter } from "next/router";
-import { useState } from "react";
+import { useAuth } from "@blocksweb/core";
 
 const SignIn = () => {
-  const x = useRouter();
-
   const { authenticate, authState } = useAuth();
   return (
     <div className="flex justify-center items-center bg-gray-300 w-full h-screen">

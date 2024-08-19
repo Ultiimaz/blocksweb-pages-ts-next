@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@blocksweb/core": "0.0.106",
+    "@blocksweb/core": "0.0.111",
     "@chakra-ui/react": "^2.8.2",
     "@nivo/bar": "^0.87.0",
     "@nivo/core": "^0.87.0",

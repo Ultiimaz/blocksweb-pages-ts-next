@@ -25,6 +25,14 @@ const DynamicPage = (props: {
 
 // Define paths to be statically generated
 export const getServerSideProps = async (req: NextRequest) => {
+  if (!process.env.BLOCKSWEB_API_KEY!) {
+    return {
+      redirect: {
+        destination: "/admin/no-key",
+        permanent: false,
+      },
+    };
+  }
   const pages = (await GetPagesAsync()) as unknown as {
     id: string;
     slug: string;
@@ -32,14 +40,7 @@ export const getServerSideProps = async (req: NextRequest) => {
     createdAt: string;
     updatedAt: string;
   }[];
-  const paths2 = pages.map((page) => {
-    return {
-      params: { slug: [page.slug] },
-    };
-  });
 
-  // @ts-ignore
-  console.log(req.query);
   // @ts-ignore
   if (Boolean(req.query.slug)) {
     // @ts-ignore
@@ -55,6 +56,7 @@ export const getServerSideProps = async (req: NextRequest) => {
       },
     };
   }
+
   const page = pages.find((page) => page.slug === "index") ?? null;
 
   if (!page) {
