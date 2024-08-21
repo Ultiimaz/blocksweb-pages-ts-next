@@ -1,4 +1,4 @@
-import { registerUser } from "@blocksweb/core/api";
+import { registerUser } from "@blocksweb/core";
 import { useRouter } from "next/router";
 
 const SignUp = () => {
