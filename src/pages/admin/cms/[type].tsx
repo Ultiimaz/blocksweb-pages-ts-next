@@ -1,16 +1,24 @@
 import { editorComponents } from "@/settings/register";
-import { BlockswebProvider } from "@blocksweb/core-local/src";
-import { ContentPanel } from "@blocksweb/core-local/src/cms/pages/content";
+import { BlockswebProvider, ContentPanel } from "@blocksweb/core";
 
-export default function Cms() {
+export default function Cms(props: { type: string }) {
   return (
     <BlockswebProvider
       settings={{
         editorComponents,
-        scripts: ["https://cdn.tailwindcss.com"],
+        scripts: [""],
       }}
     >
-      <ContentPanel />
+      <ContentPanel type={props.type} />
     </BlockswebProvider>
   );
+}
+
+export async function getServerSideProps(context) {
+  const { type } = context.query;
+  return {
+    props: {
+      type,
+    },
+  };
 }
