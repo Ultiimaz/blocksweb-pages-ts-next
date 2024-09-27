@@ -1,14 +1,9 @@
-import { editorComponents } from "@/settings/register";
+import { settings } from "@/settings/register";
 import { BlockswebProvider, ContentPanel } from "@blocksweb/core";
 
 export default function Cms(props: { type: string }) {
   return (
-    <BlockswebProvider
-      settings={{
-        editorComponents,
-        scripts: [""],
-      }}
-    >
+    <BlockswebProvider settings={settings}>
       <ContentPanel type={props.type} />
     </BlockswebProvider>
   );
