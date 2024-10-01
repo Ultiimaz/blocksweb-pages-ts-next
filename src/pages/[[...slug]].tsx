@@ -1,6 +1,5 @@
 import { settings } from "@/settings/register";
 import { renderComponent, GetPagesAsync } from "@blocksweb/core";
-import { GetServerSideProps, GetStaticPaths } from "next";
 import Script from "next/script";
 import { NextRequest } from "next/server";
 import { Fragment } from "react";
