@@ -1,4 +1,4 @@
-import { getWorkspacesWithToken, Workspace } from "@blocksweb/core";
+import { getWorkspacesWithToken, IWorkspace } from "@blocksweb/core";
 import { GetServerSidePropsContext } from "next";
 import { useState } from "react";
 import fs from "fs";
@@ -8,10 +8,10 @@ import { useRouter } from "next/router";
 import { getBody } from "../../lib/utils";
 
 const ShowWorkspaces = (props: {
-  workspaces: Workspace[];
-  onSelectWorkspace: (workspace: Workspace) => void;
+  workspaces: IWorkspace[];
+  onSelectWorkspace: (workspace: IWorkspace) => void;
 }) => {
-  const [openWorkspace, setOpenWorkspace] = useState<Workspace | null>(null);
+  const [openWorkspace, setOpenWorkspace] = useState<IWorkspace | null>(null);
 
   return (
     <div className="hs-accordion-group" data-hs-accordion-always-open="">
@@ -79,10 +79,10 @@ const ShowWorkspaces = (props: {
     </div>
   );
 };
-const NoKey = (props: { workspaces: Workspace[] }) => {
+const NoKey = (props: { workspaces: IWorkspace[] }) => {
   const router = useRouter();
 
-  const onSelectWorkspace = (workspace: Workspace) => {
+  const onSelectWorkspace = (workspace: IWorkspace) => {
     fetch(router.pathname, {
       method: "POST",
       headers: {

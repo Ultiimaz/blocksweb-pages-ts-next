@@ -1,7 +1,8 @@
+import { IBlockswebComponent } from "@blocksweb/core";
 import Head from "next/head";
 import { useEffect, useState } from "react";
 
-const TestComponent = (props: any) => {
+const TestComponent: IBlockswebComponent = (props: any) => {
   const [counter, setCounter] = useState<number>(0);
   useEffect(() => {
     const interval = setInterval(() => {
@@ -21,13 +22,8 @@ const TestComponent = (props: any) => {
 
 TestComponent.data = {
   displayName: "TestComponent",
-  traits: [
-    {
-      name: "title",
-      type: "button",
-      text: "Click me",
-    },
-  ],
+
+  traits: [],
 };
 
 export default TestComponent;

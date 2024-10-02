@@ -1,4 +1,5 @@
 import { ProductList } from "@/components/component/product-list";
+import { IBlockswebComponent } from "@blocksweb/core";
 
 // Define the type for a single product, including an image URL
 type Product = {
@@ -33,7 +34,7 @@ type BlockswebComponent = {
 };
 
 // Define the ProductLister component with inline mocked products including real names and images
-const ProductLister = (props: ProductListerProps) => {
+const ProductLister: IBlockswebComponent = (props: ProductListerProps) => {
   // Updated products array with real product names and image URLs from Unsplash
 
   return (
@@ -58,7 +59,7 @@ ProductLister.data = {
   editable: true,
   traits: [
     {
-      type: "cms-single",
+      type: "library-single",
       label: "Products",
       name: "products",
       default: [],

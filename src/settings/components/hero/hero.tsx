@@ -1,4 +1,5 @@
-const HeroSection = () => {
+import { IBlockswebComponent, Text } from "@blocksweb/core";
+const HeroSection: IBlockswebComponent = (props) => {
   return (
     <div className="relative overflow-hidden before:absolute before:top-0 before:start-1/2 before:bg-[url('https://preline.co/assets/svg/examples/polygon-bg-element.svg')] dark:before:bg-[url('https://preline.co/assets/svg/examples-dark/polygon-bg-element.svg')] before:bg-no-repeat before:bg-top before:bg-cover before:size-full before:-z-[1] before:transform before:-translate-x-1/2">
       <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-10">
@@ -14,6 +15,7 @@ const HeroSection = () => {
         </div>
 
         <div className="mt-5 max-w-3xl text-center mx-auto">
+          <Text propName="subtitle" defaultText={props.subtitle} />
           <p className="text-lg text-gray-600 dark:text-neutral-400">
             At Blocksweb, we empower both developers and content marketers to
             build stunning, dynamic websites with ease. Our unique platform

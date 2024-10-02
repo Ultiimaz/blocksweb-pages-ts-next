@@ -1,3 +1,4 @@
+import { IBlockswebComponent } from "@blocksweb/core";
 import ProductLister from "./ProductLister";
 
 // Define the type for a single product, including an image URL
@@ -15,7 +16,7 @@ type ProductListerProps = {
 };
 
 // Define the ProductLister component with inline mocked products including real names and images
-const LayoutComponent = ({
+const LayoutComponent: IBlockswebComponent = ({
   children,
   LeftComponent,
   background,

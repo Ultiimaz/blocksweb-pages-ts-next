@@ -1,18 +1,13 @@
 import { settings } from "@/settings/register";
-import { renderComponent, GetPagesAsync } from "@blocksweb/core";
+import {
+  renderComponent,
+  GetPagesAsync,
+  IBlockswebPage,
+} from "@blocksweb/core";
 import Script from "next/script";
 import { NextRequest } from "next/server";
 import { Fragment } from "react";
-const DynamicPage = (props: {
-  page: {
-    id: string;
-    name: string;
-    slug: string;
-    content: string;
-    createdAt: string;
-    updatedAt: string;
-  };
-}) => {
+const DynamicPage = (props: { page: IBlockswebPage }) => {
   const render = renderComponent(settings.editorComponents, props.page);
   return (
     <Fragment>
