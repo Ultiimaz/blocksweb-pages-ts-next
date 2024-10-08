@@ -4,6 +4,7 @@ const HeroSection: IBlockswebComponent = (props) => {
     <div className="relative overflow-hidden before:absolute before:top-0 before:start-1/2 before:bg-[url('https://preline.co/assets/svg/examples/polygon-bg-element.svg')] dark:before:bg-[url('https://preline.co/assets/svg/examples-dark/polygon-bg-element.svg')] before:bg-no-repeat before:bg-top before:bg-cover before:size-full before:-z-[1] before:transform before:-translate-x-1/2">
       <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-10">
         <div className="mt-5 max-w-2xl text-center mx-auto">
+          <Text propName="title" defaultText={props.title} />
           <h1 className="block font-bold text-gray-800 text-4xl md:text-5xl lg:text-6xl dark:text-neutral-200">
             Your Ultimate
             <span className="bg-clip-text bg-gradient-to-tl from-blue-600 to-violet-600 text-transparent pl-3">
@@ -16,14 +17,6 @@ const HeroSection: IBlockswebComponent = (props) => {
 
         <div className="mt-5 max-w-3xl text-center mx-auto">
           <Text propName="subtitle" defaultText={props.subtitle} />
-          <p className="text-lg text-gray-600 dark:text-neutral-400">
-            At Blocksweb, we empower both developers and content marketers to
-            build stunning, dynamic websites with ease. Our unique platform
-            combines the flexibility of custom React components with a robust
-            content management system (CMS), ensuring that every website is not
-            only visually appealing but also highly functional and easy to
-            manage.
-          </p>
         </div>
 
         <div className="mt-8 gap-3 flex justify-center">

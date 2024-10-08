@@ -1,18 +1,18 @@
-import { settings } from "@/settings/register";
+import { editorComponents, settings } from "@/settings/register";
 import {
   renderComponent,
   GetPagesAsync,
   IBlockswebPage,
+  DynamicRenderer,
 } from "@blocksweb/core";
 import Script from "next/script";
 import { NextRequest } from "next/server";
 import { Fragment } from "react";
 const DynamicPage = (props: { page: IBlockswebPage }) => {
-  const render = renderComponent(settings.editorComponents, props.page);
   return (
     <Fragment>
       <Script src={settings.scripts[0]} />
-      {render}
+      <DynamicRenderer page={props.page} editorComponents={editorComponents} />
     </Fragment>
   );
 };

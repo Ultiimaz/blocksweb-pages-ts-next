@@ -1,14 +1,6 @@
-import { ProductList } from "@/components/component/product-list";
 import { IBlockswebComponent } from "@blocksweb/core";
 
 // Define the type for a single product, including an image URL
-type Product = {
-  id: number;
-  name: string;
-  price: number;
-  imageUrl: string;
-};
-
 export type ProductListerProps = {
   background: string;
   title: string;
@@ -17,20 +9,6 @@ export type ProductListerProps = {
     product_description: string;
   }[];
   children?: React.ReactNode;
-};
-
-type BlockswebComponent = {
-  (props: ProductListerProps): BlockswebComponent;
-  data: {
-    displayName: string;
-    droppable: boolean;
-    editable: boolean;
-    traits: {
-      type: string;
-      label: string;
-      name: string;
-    }[];
-  };
 };
 
 // Define the ProductLister component with inline mocked products including real names and images
@@ -43,11 +21,7 @@ const ProductLister: IBlockswebComponent = (props: ProductListerProps) => {
         background: props.background,
       }}
     >
-      <ProductList
-        products={props.products}
-        background={props.background}
-        title={props.title}
-      />
+      <h2>{props.title}</h2>
       {props.children}
     </div>
   );
