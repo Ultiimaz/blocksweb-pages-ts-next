@@ -150,7 +150,7 @@ export const getServerSideProps = async ({
 
     return {
       redirect: {
-        destination: "./editor",
+        destination: "./cms/editor",
         permanent: false,
       },
     };

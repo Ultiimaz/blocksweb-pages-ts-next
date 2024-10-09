@@ -19,6 +19,16 @@ export default function Cms(props: { type: string }) {
 
 export async function getServerSideProps(context) {
   const { type } = context.query;
+
+  if (!process.env.BLOCKSWEB_API_KEY!) {
+    return {
+      redirect: {
+        destination: "/admin/no-key",
+        permanent: false,
+      },
+    };
+  }
+
   return {
     props: {
       type,

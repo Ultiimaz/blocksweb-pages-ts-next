@@ -4,12 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 3000",
-    "build": "next build",
+    "build": "next build --profile",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "@blocksweb/core": "0.0.144",
+    "@blocksweb/core": "0.0.148",
     "dotenv": "^16.4.5",
     "js-cookie": "^3.0.5",
     "lucide-react": "^0.379.0",
