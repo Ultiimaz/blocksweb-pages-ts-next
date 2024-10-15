@@ -17,7 +17,6 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL("./sign-in", request.url));
   }
 
-  console.log("session: ", session.value);
   return NextResponse.next();
 }
 
