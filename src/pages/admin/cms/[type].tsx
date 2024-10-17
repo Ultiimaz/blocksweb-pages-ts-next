@@ -1,6 +1,7 @@
 import { settings } from "@/settings/register";
 import { BlockswebProvider } from "@blocksweb/core";
 import dynamic from "next/dynamic";
+import { GetServerSidePropsContext } from "next/types";
 
 const ContentPanel = dynamic(
   () => import("@blocksweb/core").then((mod) => mod.ContentPanel),
@@ -17,7 +18,7 @@ export default function Cms(props: { type: string }) {
   );
 }
 
-export async function getServerSideProps(context) {
+export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { type } = context.query;
 
   if (!process.env.BLOCKSWEB_API_KEY!) {
