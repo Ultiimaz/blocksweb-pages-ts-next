@@ -6,6 +6,8 @@ const SignIn = () => {
   const { authenticate, authState } = useAuth();
   const window = useWindow();
   const router = useRouter();
+  const isDemo = window?.location.origin === "https://demo.blocksweb.nl";
+
   return (
     <div className="flex justify-center items-center bg-gray-300 w-full h-screen">
       <div className="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-neutral-900 dark:border-neutral-700 w-1/5">
@@ -57,6 +59,29 @@ const SignIn = () => {
               </svg>
               Sign in with Google
             </a>
+
+            {isDemo && (
+              <>
+                <div className="py-3 flex items-center text-xs text-gray-400 uppercase before:flex-1 before:border-t before:border-gray-200 before:me-6 after:flex-1 after:border-t after:border-gray-200 after:ms-6 dark:text-neutral-500 dark:before:border-neutral-600 dark:after:border-neutral-600">
+                  Or
+                </div>
+                <button
+                  type="button"
+                  className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+                  onClick={() => {
+                    authenticate("demo@blocksweb.nl", "demo").then(
+                      (authState) => {
+                        if (authState?.response.data) {
+                          router.push("/admin/cms/editor");
+                        }
+                      }
+                    );
+                  }}
+                >
+                  Sign into demo environment
+                </button>
+              </>
+            )}
 
             <div className="py-3 flex items-center text-xs text-gray-400 uppercase before:flex-1 before:border-t before:border-gray-200 before:me-6 after:flex-1 after:border-t after:border-gray-200 after:ms-6 dark:text-neutral-500 dark:before:border-neutral-600 dark:after:border-neutral-600">
               Or
