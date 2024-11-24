@@ -1,9 +1,10 @@
+import { useWindow } from "@/lib/utils";
 import { useAuth } from "@blocksweb/core";
 import { useRouter } from "next/router";
 
 const SignIn = () => {
   const { authenticate, authState } = useAuth();
-
+  const window = useWindow();
   const router = useRouter();
   return (
     <div className="flex justify-center items-center bg-gray-300 w-full h-screen">
