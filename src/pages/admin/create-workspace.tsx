@@ -1,4 +1,3 @@
-import { useLocalStorage } from "@/hooks/use-localstorage";
 import { createWorkspace } from "@blocksweb/core";
 import { GetServerSidePropsContext } from "next";
 import { useRouter } from "next/router";

@@ -1,7 +1,7 @@
 import React from "react";
-import { IBlockswebComponent, Text } from "@blocksweb/core";
 import { ChevronRight } from "lucide-react";
-
+import { RichText } from "@blocksweb/core";
+import { IBlockswebComponent } from "@blocksweb/core";
 const ImageLeftTextRightBlock: IBlockswebComponent = ({
   imageSrc,
   imageAlt,
@@ -29,7 +29,7 @@ const ImageLeftTextRightBlock: IBlockswebComponent = ({
               {title}
             </h2>
 
-            <Text propName={description} />
+            <RichText propName={description} />
             <p className="text-lg text-gray-600 leading-relaxed">
               {description}
             </p>
@@ -76,7 +76,7 @@ ImageLeftTextRightBlock.schema = {
     },
     {
       name: "description",
-      type: "textarea",
+      type: "text",
       label: "Description",
       default:
         "Our platform enables teams to work together effortlessly, breaking down silos and fostering innovation. Experience the power of true collaboration with our intuitive tools and features.",

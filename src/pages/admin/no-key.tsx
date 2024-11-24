@@ -1,4 +1,3 @@
-import { getWorkspacesWithToken, IWorkspace } from "@blocksweb/core";
 import { GetServerSidePropsContext } from "next";
 import { useState } from "react";
 import fs from "fs";
@@ -6,6 +5,7 @@ import path from "path";
 import { config } from "dotenv";
 import { useRouter } from "next/router";
 import { getBody } from "../../lib/utils";
+import { getWorkspacesWithToken, IWorkspace } from "@blocksweb/core";
 
 const ShowWorkspaces = (props: {
   workspaces: IWorkspace[];
