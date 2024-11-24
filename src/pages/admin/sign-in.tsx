@@ -1,9 +1,10 @@
-import { useWindow } from "@/lib/utils";
 import { useAuth } from "@blocksweb/core";
+import { useRouter } from "next/router";
 
 const SignIn = () => {
-  const window = useWindow();
   const { authenticate, authState } = useAuth();
+
+  const router = useRouter();
   return (
     <div className="flex justify-center items-center bg-gray-300 w-full h-screen">
       <div className="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-neutral-900 dark:border-neutral-700 w-1/5">
@@ -67,7 +68,11 @@ const SignIn = () => {
                 const formData = new FormData(formElement);
                 const email = formData.get("email") as string;
                 const password = formData.get("password") as string;
-                authenticate(email, password);
+                authenticate(email, password).then((authState) => {
+                  if (authState?.response.data) {
+                    router.push("/admin/cms/editor");
+                  }
+                });
               }}
             >
               <div className="text-red-600">{authState.message}</div>
@@ -184,6 +189,22 @@ const SignIn = () => {
       </div>
     </div>
   );
+};
+
+export const getServerSideProps = async () => {
+  if (!process.env.BLOCKSWEB_API_KEY) {
+    return {
+      props: {
+        redirectLocation: "/no-key",
+      },
+    };
+  }
+
+  return {
+    props: {
+      redirectLocation: "/",
+    },
+  };
 };
 
 export default SignIn;
