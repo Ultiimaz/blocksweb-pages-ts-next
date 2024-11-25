@@ -29,10 +29,12 @@ const ImageLeftTextRightBlock: IBlockswebComponent = ({
               {title}
             </h2>
 
-            <RichText propName={description} />
-            <p className="text-lg text-gray-600 leading-relaxed">
-              {description}
-            </p>
+            <RichText
+              propName={description}
+              text={description}
+              defaultText="Our platform enables teams to work together effortlessly, breaking down silos and fostering innovation. Experience the power of true collaboration with our intuitive tools and features."
+            />
+
             {ctaText && (
               <button
                 onClick={onCtaClick}

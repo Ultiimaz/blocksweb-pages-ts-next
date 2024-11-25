@@ -9,4 +9,5 @@ export const editorComponents: IBlockswebComponent[] = [
 export const settings = {
   editorComponents: editorComponents,
   scripts: ["https://cdn.tailwindcss.com"],
+  styles: [],
 };

@@ -25,6 +25,11 @@ const ShowWorkspaces = (props: {
             className="hs-accordion-toggle hs-accordion-active:text-blue-600 py-3 inline-flex items-center gap-x-3 w-full font-semibold text-start text-gray-800 hover:text-gray-500 focus:outline-none focus:text-gray-500 rounded-lg disabled:opacity-50 disabled:pointer-events-none dark:hs-accordion-active:text-blue-500 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400"
             aria-expanded="false"
             aria-controls="hs-basic-always-open-collapse-one"
+            onClick={() =>
+              setOpenWorkspace(
+                openWorkspace?.id === workspace.id ? null : workspace
+              )
+            }
           >
             <svg
               className="hs-accordion-active:hidden block size-3.5"
@@ -83,6 +88,7 @@ const NoKey = (props: { workspaces: IWorkspace[] }) => {
   const router = useRouter();
 
   const onSelectWorkspace = (workspace: IWorkspace) => {
+    console.log("workspace: ", workspace);
     fetch(router.pathname, {
       method: "POST",
       headers: {
@@ -91,7 +97,13 @@ const NoKey = (props: { workspaces: IWorkspace[] }) => {
       body: JSON.stringify({
         workspaceId: workspace.id,
       }),
-    });
+    })
+      .then(() => {
+        router.push("/cms/editor");
+      })
+      .catch((error) => {
+        console.error("Error: ", error);
+      });
   };
   return (
     <div className="flex justify-center items-center bg-gray-300 w-full h-screen">
