@@ -16,10 +16,7 @@ export default async function handler(
   if (isArray(slug) && slug.length > 0) {
     uri = slug.join("/");
   }
-  const url = new URL(
-    uri?.toString(),
-    "https://blocksweb-adonis.onrender.com/"
-  );
+  const url = new URL(uri?.toString(), "https://api.blocksweb.nl/");
   const response = await fetch(url.toString(), {
     method: req.method,
     headers: {
