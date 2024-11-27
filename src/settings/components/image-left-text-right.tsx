@@ -30,7 +30,7 @@ const ImageLeftTextRightBlock: IBlockswebComponent = ({
             </h2>
 
             <RichText
-              propName={description}
+              propName={"description"}
               text={description}
               defaultText="Our platform enables teams to work together effortlessly, breaking down silos and fostering innovation. Experience the power of true collaboration with our intuitive tools and features."
             />
