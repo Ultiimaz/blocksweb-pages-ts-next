@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@blocksweb/core": "0.0.168",
+    "@blocksweb/core": "0.0.170",
     "dotenv": "^16.4.5",
     "framer-motion": "^11.11.8",
     "js-cookie": "^3.0.5",
