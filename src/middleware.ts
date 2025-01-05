@@ -13,7 +13,7 @@ export async function middleware(request: NextRequest) {
   const session = request.cookies.get("session");
 
   if (!session) {
-    return NextResponse.redirect(new URL("./sign-in", request.url));
+    return NextResponse.redirect(new URL("/admin/sign-in", request.url));
   }
 
   return NextResponse.next();
