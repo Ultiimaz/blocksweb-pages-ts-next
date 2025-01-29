@@ -1,11 +1,11 @@
 import { settings } from "@/settings/register";
 
 import type { AppProps } from "next/app";
-import "@blocksweb/core/frontend/style.css";
+import "@blocksweb/core/dist/frontend/style.css";
 import Head from "next/head";
 import CookieBanner from "@/components/component/CookieBanner";
 import { BlockswebProvider } from "@blocksweb/core";
-import Script from "next/script";
+
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <BlockswebProvider settings={settings}>
