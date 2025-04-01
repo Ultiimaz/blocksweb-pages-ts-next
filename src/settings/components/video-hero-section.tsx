@@ -51,24 +51,6 @@ VideoHeroSection.schema = {
       default:
         "https://assets.mixkit.co/videos/preview/mixkit-set-of-plateaus-seen-from-the-heights-in-a-sunset-26070-large.mp4",
     },
-    {
-      name: "title",
-      type: "text",
-      label: "Title",
-      default: "Experience the Future",
-    },
-    {
-      name: "subtitle",
-      type: "text",
-      label: "Subtitle",
-      default: "Immerse yourself in cutting-edge technology and innovation",
-    },
-    {
-      name: "ctaText",
-      type: "text",
-      label: "CTA Button Text",
-      default: "Watch Demo",
-    },
   ],
 };
 
