@@ -16,7 +16,7 @@ export default async function handler(
   if (isArray(slug) && slug.length > 0) {
     uri = slug.join("/");
   }
-  const url = new URL(uri?.toString(), "https://api.blocksweb.nl/");
+  const url = new URL(uri?.toString(), "https://blocksweb-dasboard-laravel-main-2a6rkv.laravel.cloud/api/");
   const response = await fetch(url.toString(), {
     method: req.method,
     headers: {

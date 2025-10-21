@@ -6,7 +6,11 @@ const SignIn = () => {
   const { authenticate, authState } = useAuth();
   const window = useWindow();
   const router = useRouter();
+  const { redirect_uri } = router.query;
   const isDemo = window?.location.origin === "https://demo.blocksweb.nl";
+
+  // Determine where to redirect after successful authentication
+  const redirectAfterAuth = typeof redirect_uri === 'string' ? redirect_uri : '/admin/cms/editor';
 
   return (
     <div className="flex justify-center items-center bg-gray-300 w-full h-screen">
@@ -29,7 +33,7 @@ const SignIn = () => {
 
           <div className="mt-5">
             <a
-              href={`https://api.blocksweb.nl/google/redirect?redirect_uri=${window?.location.origin}/admin/check`}
+              href={`https://api.blocksweb.nl/google/redirect?redirect_uri=${encodeURIComponent(redirectAfterAuth)}`}
               type="button"
               className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
             >
@@ -72,7 +76,7 @@ const SignIn = () => {
                     authenticate("demo@blocksweb.nl", "demo").then(
                       (authState) => {
                         if (authState?.response.data) {
-                          router.push("/admin/cms/editor");
+                          router.push(redirectAfterAuth);
                         }
                       }
                     );
@@ -96,7 +100,7 @@ const SignIn = () => {
                 const password = formData.get("password") as string;
                 authenticate(email, password).then((authState) => {
                   if (authState?.response.data) {
-                    router.push("/admin/cms/editor");
+                    router.push(redirectAfterAuth);
                   }
                 });
               }}
